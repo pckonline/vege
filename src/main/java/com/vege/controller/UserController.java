@@ -22,17 +22,35 @@ public class UserController {
     @Resource(name = "userServiceImpl")
     private UserService userService;
 
+    //登录
+    @RequestMapping("/checkUser")
+    public String checkUser(HttpServletRequest request,Model model){
+        int id = Integer.parseInt(request.getParameter("username"));
+        UserDto userDto= this.userService.selectByPrimaryKey(id);
+        if (request.getParameter("password").equals(userDto.getPassword())){
+            model.addAttribute("user", userDto);
+            request.getSession().setAttribute("username",userDto.getUsername());
+            System.out.println("hihi");
+            return "user/checkUser";
+        }else {
+            model.addAttribute("user", userDto);
+            System.out.println("no");
+            return "user/login";
+        }
+
+    }
+
     //注册
     @RequestMapping("/insertUser")
     public String insertUser(HttpServletRequest request,Model model){
-        UserDto userDto= new UserDto();
-        userDto.setUsername("pckonline");
-        userDto.setPassword("p5385676");
+        UserDto userDto= null;
+        userDto = general(request);
         this.userService.insert(userDto);
         model.addAttribute("user", userDto);
         System.out.println("hihi");
         return "user/showUser";
     }
+
     //注销
     @RequestMapping("/deleteUser")
     public String deleteUser(HttpServletRequest request,Model model){
@@ -54,5 +72,19 @@ public class UserController {
         model.addAttribute("user", userDto);
         System.out.println("hihi");
         return "user/showUser";
+    }
+
+    /**
+     * 整合注册信息
+     * @param request
+     * @return
+     */
+    private UserDto general(HttpServletRequest request) {
+        UserDto userDto= new UserDto();
+        String username=request.getParameter("username");
+        String password=request.getParameter("password");
+        userDto.setUsername(username);
+        userDto.setPassword(password);
+        return userDto;
     }
 }

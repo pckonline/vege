@@ -25,7 +25,7 @@
         <c:if test="${sessionScope.username==null}">
             <div class="col-xs-3" ><a href="/jsp/user/login.jsp">马上登录</a></div>
         </c:if>
-            <div class="col-xs-3" ><a href="/lv/login/register.jsp">免费注册</a></div>
+            <div class="col-xs-3" ><a href="/jsp/user/register.jsp">免费注册</a></div>
             </div>
         <div class="col-xs-7" >
             <div class="col-xs-6" ></div>
@@ -60,9 +60,6 @@
                         </li>
                         <li style="margin-right: 5px;"><button class="dropdown-toggle"
                                                                style="color:#fff;margin-left: 10px;background:none;border:0;cursor:pointer;position: relative;top: 11px;"
-                                                               type="button"  onclick="changeToTeamTravel()">跟团游</button></li>
-                        <li style="margin-right: 5px;"><button class="dropdown-toggle"
-                                                               style="color:#fff;margin-left: 10px;background:none;border:0;cursor:pointer;position: relative;top: 11px;"
                                                                type="button"  onclick="changeToShareTravel()">旅行分享</button></li>
                         <li style="margin-right: 5px;"><button class="dropdown-toggle"
                                                                style="color:#fff;margin-left: 10px;background:none;border:0;cursor:pointer;position: relative;top: 11px;"
@@ -93,11 +90,16 @@
         </nav>
     </div>
     <div class="row">
-        <iframe name="iframe1" id="iframe1" src="/lv/mainpage/mainpage.jsp" width="100%" height="100%">
-
+        <iframe name="iframe1" id="iframe1" src="/jsp/mainpage/mainpage.jsp" width="100%" height="100%">
         </iframe>
     </div>
 </form>
 </body>
-
+<script language="JavaScript">
+    function changeToMainPage(){
+        var iframe1=document.getElementById("iframe1");
+        iframe1.src="/jsp/mainpage/mainpage.jsp";
+        return true;
+    }
+</script>
 </html>

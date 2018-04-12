@@ -32,7 +32,7 @@
         <div class="row">
             <div class="col-xs-3"></div>
             <div class="col-xs-6">
-                <div class="alert alert-success" role="alert">注册成功！</div>
+                <div class="alert alert-success" role="alert">登录成功！</div>
             </div>
             <div class="col-xs-3"></div>
         </div>

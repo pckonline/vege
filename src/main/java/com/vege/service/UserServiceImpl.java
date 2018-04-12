@@ -35,5 +35,11 @@ public class UserServiceImpl implements UserService {
         UserDao.updateByPrimaryKey(userDto);
         return 0;
     }
+
+    @Override
+    public UserDto selectByPrimaryKey(Integer id) {
+        System.out.println("selectSuccess");
+        return UserDao.selectByPrimaryKey(id);
+    }
 }
 

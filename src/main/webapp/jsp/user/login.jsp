@@ -60,7 +60,7 @@
             alert("请输入完整的信息！");
             return false;
         }
-        fm.action="/user/insertUser";
+        fm.action="/user/checkUser";
         fm.submit();
     }
 </script>

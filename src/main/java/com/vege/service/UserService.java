@@ -9,4 +9,5 @@ public interface UserService {
     public int insert(UserDto userDto);
     public int deleteByPrimaryKey(Integer id);
     public int updateByPrimaryKey(UserDto userDto);
+    public UserDto selectByPrimaryKey(Integer id);
 }

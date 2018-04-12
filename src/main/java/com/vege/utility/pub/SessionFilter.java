@@ -22,7 +22,6 @@ public class SessionFilter implements Filter {
         HttpSession session = request.getSession();
         String userName = (String) session.getAttribute("username");
         String uri = request.getRequestURI();
-        //非校验页面，首页、登录注册页面、导航栏中的功能页面。
         if (uri.indexOf("index.jsp") == -1&&uri.indexOf("mainpage.jsp") == -1&&uri.indexOf("teamtravelist.jsp") == -1&&uri.indexOf("login.jsp") == -1&&uri.indexOf("register.jsp") == -1&&uri.length()!=1) {
             if ((userName == null || userName.equals(""))) {
                 response.sendRedirect("/index.jsp");
