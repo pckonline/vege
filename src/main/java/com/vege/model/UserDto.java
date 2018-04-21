@@ -1,6 +1,5 @@
 package com.vege.model;
 
-import java.util.Date;
 
 public class UserDto {
     private Integer id;

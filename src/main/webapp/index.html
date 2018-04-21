@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>登录页面html</title>
+    <script type="text/javascript" src="/js/jquery-1.5.1.min.js"></script>
+</head>
+<body>
+<form name="fm" method="post">
+
+    <button onclick="sendJson()">json数据交互测试</button>
+</form>
+</body>
+<script language="JavaScript">
+    function sendJson() {
+        var json1 = {"userName" : "peter"};
+        $.ajax({
+            type:"post",
+            url:"http://localhost/user/checkUser",
+            contentType:"application/json",
+            data: '{"id":1,"username":"peter","password":"aaa"}',
+            dataType: "json",
+            success: function (data) {
+                alert(data.id+":"+data.username);
+            }
+        });
+    }
+</script>
+</html>

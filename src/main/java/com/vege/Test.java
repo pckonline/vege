@@ -12,9 +12,9 @@ public class Test {
         ApplicationContext ctx =
                 new ClassPathXmlApplicationContext("classpath:spring-mybatis.xml");
         UserService userService = (UserService) ctx.getBean("userServiceImpl");
-        UserDto userDto = new UserDto();
-        userDto.setUsername("11");
-        userDto.setPassword("p5385676");
-        userService.insert(userDto);
+//        UserDto userDto = new UserDto();
+//        userDto.setUsername("11");
+//        userDto.setPassword("p5385676");
+//        userService.insert(userDto);
     }
 }

@@ -50,6 +50,7 @@
             </div>
         </div>
     </div>
+    <button onclick="sendJson()">json数据交互测试</button>
 </form>
 </body>
 <script language="JavaScript">
@@ -62,6 +63,16 @@
         }
         fm.action="/user/checkUser";
         fm.submit();
+    }
+
+    function sendJson() {
+        $.ajax({
+            type:"post",
+            url:"http://localhost/user/checkUser",
+            data:{id:1,username:"aaa",password:"aaa"},
+            contentType:"application/json;charset=utf-8"
+            dataType: "json",
+        });
     }
 </script>
 </html>
